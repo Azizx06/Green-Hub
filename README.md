@@ -1,11 +1,11 @@
 # Jeddah Recycling and Waste Reduction Hub
 
-## 📘 Overview
-This project is a group project part of CPIS-358 course. A full-stack web application built using ASP.NET MVC and SQL Server. Its main goal is to raise awareness and promote recycling and waste reduction practices. The application provides resources, event announcements, educational content, and interactive features such as user authentication and a comment section.
+##  Overview
+This project is a group project part of web development course. A full-stack web application built using ASP.NET MVC and SQL Server. Its main goal is to raise awareness and promote recycling and waste reduction practices. The application provides resources, event announcements, educational content, and interactive features such as user authentication and a comment section.
 
 ---
 
-## 🛠️ Technologies Used
+##  Technologies Used
 - **Visual Studio Community 2022**
 - **ASP.NET MVC**
 - **C#**
@@ -17,7 +17,7 @@ This project is a group project part of CPIS-358 course. A full-stack web applic
 
 ---
 
-## 🔑 Features
+##  Features
 - User Registration and Login (Individual User Accounts)
 - Informational Pages (Resources, Articles, Events)
 - Comment Section on Resources Page
@@ -30,14 +30,14 @@ This project is a group project part of CPIS-358 course. A full-stack web applic
 
 ---
 
-## 💾 Database
+##  Database
 - The project uses SQL Server for storing user data, comments, events, and uploaded files.
 - Ensure SQL Server is installed and running.
 - Update the connection string in `appsettings.json` or `Web.config` with your local database credentials.
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 1. **Clone or Download the Project**
    - Extract the project files into a working directory.
