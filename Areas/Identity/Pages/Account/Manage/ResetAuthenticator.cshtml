@@ -1,0 +1,27 @@
+﻿@page
+@model ResetAuthenticatorModel
+@{
+    ViewData["Title"] = "Reset authenticator key";
+    ViewData["ActivePage"] = ManageNavPages.TwoFactorAuthentication;
+}
+
+<partial name="_StatusMessage" for="StatusMessage" />
+
+<div id="FCAuth" class="alert alert-warning" role="alert" style="margin-top:10px;">
+    <h2>@ViewData["Title"]</h2>
+    <p>
+        <span class="glyphicon glyphicon-warning-sign"></span>
+        <strong>If you reset your authenticator key your authenticator app will not work until you reconfigure it.</strong>
+    </p>
+    <p>
+        This process disables 2FA until you verify your authenticator app.
+        If you do not complete your authenticator app configuration you may lose access to your account.
+    </p>
+
+    
+        <form id="reset-authenticator-form" method="post">
+            <button id="reset-authenticator-button" class="btn btn-danger" style="display: block;margin: 0 auto; border-radius:5px;" type="submit">Reset authenticator key</button>
+        </form>
+    
+</div>
+

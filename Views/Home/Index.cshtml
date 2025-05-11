@@ -1,0 +1,108 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<section id="intro">
+    <!-- Assigned a class from styles.css-->
+    <!-- #introText used in JS, for dynamic texts (cycles through different headers) -->
+    <h2 id="introText"> Welcome to the Jeddah Recycling and Waste Reduction Hub </h2>
+    <p>
+        This hub provides resources, events, and educational articles
+        to help Jeddah residents recycle and reduce waste effectively.
+    </p>
+
+    <!-- #introImage used in JS, for dynamic images (cycles through different images) -->
+    <img id="introImage" src="/images/RecycleExample2.jpeg" width="100" alt="Recycling in Jeddah">
+
+    <br><br><p>
+        From learning how to recycle effectively to participating in local community clean-up events, this hub provides you
+        with all the tools and information you need to lead an eco-friendly lifestyle. Join us in making Jeddah a sustainable
+        city for future generations.
+    </p>
+</section>
+
+
+
+<section class="homeTable">
+    <!-- Assigned a class from styles.css-->
+    <h3>Recycling Methods</h3>
+    <table>
+        <tr>
+            <th>Type</th>
+            <th>Recycling Instructions</th>
+            <th>Local Drop-off Points</th>
+        </tr>
+        <tr>
+            <td>Plastic</td>
+            <td>Clean thoroughly before recycling</td>
+            <td>Jeddah Center Mall</td>
+        </tr>
+        <tr>
+            <td>Metal</td>
+            <td>Separate metals by type</td>
+            <td>Red Sea Mall</td>
+        </tr>
+        <tr>
+            <td>Electronics</td>
+            <td>Take to electronics recycling centers</td>
+            <td>Green Recycling Hub</td>
+        </tr>
+    </table>
+</section>
+
+
+<!------------ UPCOMING EVENTS in HOME ---------->
+
+<section class="highlighted-content">
+    <!-- Assigned a class from styles.css-->
+    <h3> <a style="font-size: 25px;" asp-area="" asp-controller="Events" asp-action="Index">Upcoming Events</a></h3>
+    <ul>
+        <li>
+            <a asp-area="" asp-controller="Events" asp-action="Index">
+                <img src="recycle-bins.webp">
+                <br>Community Clean-Up Day at Jeddah Corniche
+            </a> - November 15, 2024
+        </li>
+        <li>
+            <a asp-area="" asp-controller="Events" asp-action="Index">
+                <img src="EcoProduct.jpg">
+                <br> Eco-Friendly Product Fair
+            </a> - January 12, 2025
+        </li>
+        <li>
+            <a asp-area="" asp-controller="Events" asp-action="Index">
+                <img src="Beach Preservation Initiative.png">
+                <br> Beach Preservation Initiative
+            </a> - February 20, 2025
+        </li>
+        <li><a asp-area="" asp-controller="Home" asp-action="Events"> Earth Day Celebration and Workshop</a> - April 22, 2025</li>
+    </ul>
+</section>
+
+
+<!------------ FEATURED ARTICLES in HOME ---------->
+<section class="highlighted-content">
+    <!-- Assigned same class as above-->
+    <h3><a style="font-size: 25px;" asp-area="" asp-controller="Articles" asp-action="Index"> Featured Articles </a></h3>
+    <ul>
+        <li>
+            <a asp-area="" asp-controller="Articles" asp-action="Index">
+                <img src="Recycle 2.jpeg">
+                <br> Understanding Recycling in Jeddah: Benefits and Challenges
+            </a>
+        </li>
+        <li>
+            <a asp-area="" asp-controller="Articles" asp-action="Index">
+                <img src="10Ways.jpeg">
+                <br> Top 10 Ways to Reduce Waste at Home
+            </a>
+        </li>
+        <li><a asp-area="" asp-controller="Articles" asp-action="Index"> How to Start Composting in Small Spaces</a></li>
+        <li><a asp-area="" asp-controller="Articles" asp-action="Index"> Eco-Friendly Shopping Tips for a Greener Future</a></li>
+        <li><a asp-area="" asp-controller="Articles" asp-action="Index"> Guide to Properly Disposing of Electronics</a></li>
+    </ul>
+</section>
+<br>
+<br>
+<br>
+<br />

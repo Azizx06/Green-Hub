@@ -1,0 +1,1045 @@
+/* Reset and base styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+/* Base styling */
+body {
+    font-size: 12px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #e0efe0;
+    color: #333;
+}
+
+
+/* Header styling */
+header {
+    background-image: url('/images/HeaderImage/ecoFriendlyBackground.jpg'); /* Sets the background image */
+    background-size: cover; /* Ensures the image covers the header */
+    background-position: center; /* Centers the image within the header */
+    padding: 60px 20px; /* Increases padding to showcase the image */
+    border-radius: 0 0 25px 25px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+
+/* -------- H1 headers for most pages ------ */
+h1 {
+    text-align: center;
+    font-size: 26px;
+    margin-top: 1px;
+    margin-bottom: 2px;
+    color: #4CAF50;
+    text-shadow: 0 1px 2px #72716e;
+    border-radius: 15px;
+    padding: 0px 10px 5px 10px;
+}
+
+/* HomePage above Nav header ------  #84b952; */
+.headerh2 {
+    font-size: 23px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #69e144;
+    text-shadow: 0 1px 4px #0fd016;
+    padding: 0px 10px 5px 10px;
+}
+
+.fadeinup {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+
+nav {
+    display: flex;
+    gap: 15px; /* Adds space between navigation links below h1 header (page title at beginning)  */
+}
+
+    nav a {
+        color: #fff8f8;
+        text-decoration: none;
+        transition: color 0.3s;
+        text-shadow: 0 1px 4px #0fd016;
+        font-size: 18px;
+    }
+
+/* f0bc7a, make it orange*/
+header nav a:hover {
+    color: #98d885;
+}
+
+
+/* Search bar styling */
+.search-bar {
+    font-size: 11px;
+    margin-top: 18px;
+    text-align: center;
+}
+
+    .search-bar input {
+        
+        padding: 5px;
+        max-width: 140px;
+        border-radius: 15px;
+        border: 2px solid #ccc;
+    }
+
+p {
+    
+    line-height: 1.5;
+}
+
+
+
+/* Section styling (The Intro, and About Us page) */
+
+#intro {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out forwards;
+
+    margin: 20px auto;
+    width: 90%;
+    text-align: center;
+    padding: 20px;
+    text-shadow: 0 1px 1px #0000002b;
+    transition: opacity 0.5s ease-in-out;
+}
+
+    #intro h2 {
+        font-size: 1.5em;
+        padding: 10px 20px;
+        border-radius: 8px;
+        transition: opacity 0.5s ease-in-out; /* Fade effect for text */
+    }
+
+    #intro img {
+        width: 90%;
+        max-width: 650px;
+        height: auto;
+        margin-top: 15px;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px #0000002b;
+        transition: opacity 0.5s ease-in-out; /* Fade effect for image */
+    }
+
+.about {
+   
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.9s ease-out forwards;
+    margin: 20px auto;
+    width: 90%;
+    text-align: center;
+    padding: 20px;
+    text-shadow: 0 1px 1px #0000002b;
+}
+
+
+
+/* Highlighted content on index/homepage (events and articles) */
+.highlighted-content {
+    display: flex; 
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    margin: 25px auto;
+    padding: 25px;
+    background-color: #f9f9f9;
+    border-radius: 25px;
+    max-width: 65%;
+    box-shadow: 0 4px 8px #0000001b; 
+    animation: fadeInUp 0.8s ease-out forwards; 
+}
+
+
+    .highlighted-content h3 a { /*forl all links (Header and list */
+        font-size: 20px;
+        color: #4CAF50;
+        text-decoration: none;
+        margin-bottom: 1px;
+        text-shadow: 0 1px 3px #0000002b;
+    }
+
+    .highlighted-content ul {
+        list-style-type: none;
+        margin: 5px 0;
+    }
+
+        .highlighted-content ul li {
+            opacity: 0;
+            transform: translateY(20px); /* late transistion than parent */
+            animation: fadeInUp 1.5s ease-out forwards;
+            margin: 12px 0;
+            
+        }
+        
+
+        .highlighted-content ul li img {
+            border-radius: 8px;
+            width: 55%;
+            margin-bottom: 7px;
+
+        }
+
+        .highlighted-content ul li a {
+            color: #419545;
+            text-decoration: none;
+            transition: color 0.5s, font-size 0.3s;
+            font-size: 18px;
+}
+
+            .highlighted-content ul li a:hover {
+                font-size: 1.1em;
+                color: #c8a952;
+            }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* ---------------------------------------------------------*/
+
+/* ----------   Tables styling for Index/Home and Resources page */
+.homeTable, .resTable {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out forwards;
+
+    margin: 20px auto;
+    padding: 20px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+    border-radius: 20px;
+    max-width: 70%;
+    box-shadow: 0 1px 3px #0000002b;
+}
+
+    .homeTable h3, .resTable h3, .comment-section h3 {
+
+        margin-top: 1px;
+        margin-bottom: 15px;
+        color: #4CAF50;
+        text-shadow: 0 1px 3px #0000002b;
+    }
+
+table {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.3s ease-out forwards;
+
+    width: 95%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+    border-collapse: collapse;
+    margin: 0 auto 15px; /* Centers the table horizontally */
+}
+
+table, th, td {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+    table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+
+
+
+
+
+
+
+/* ----------------   Comment section styling */
+.comment-section {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-out forwards;
+    display: block;
+    margin: 0 auto;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 25px;
+    max-width: 55%;
+    box-shadow: 0 1px 3px #0000002b;
+}
+
+    .comment-section h2 {
+        margin-bottom: 20px;
+    }
+    .comment-section form{  
+        
+
+    }
+    .comment-section div {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 1.5s ease-out forwards;
+        
+    }
+
+    .comment-section form textarea {
+        border-radius: 9px;
+        display: block;
+        margin: 0 auto;
+        padding: 10px;
+        margin-bottom: 5px;
+        resize: both
+    }
+
+.commentbutton {
+    display: block;
+    margin: 0 auto;
+    padding: 7px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 20px;
+}
+
+        .commentbutton:hover {
+            background-color: #2b742ee4;
+        }
+
+/* Alert in comments, and any alert we migh implement  */
+.alertt {
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    transition: opacity 0.5s ease-out;
+    opacity: 1;
+}
+
+    .alertt.fade-out {
+        opacity: 0;
+    }
+
+
+.editButton {
+    background: none;
+    border: none;
+    color: blue;
+    color: #419545;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.3s;
+}
+    .editButton:hover {
+        color: #c8a952e8;
+    }
+
+.delButton {
+    background: none;
+    border: none;
+    color: #419545;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.3s;
+}
+    .delButton:hover{
+        color: red;
+    }
+
+
+
+.existing-comments p {
+    margin: 5px 0;
+    background: #3e3e3e0a;
+    padding: 10px;
+    border-left: 3px solid #4CAF50;
+    border-radius: 5px;
+}
+
+.comment-section small {
+    color: #666;
+    font-size: 0.9em;
+}
+
+
+
+
+
+
+/* ---------------------------------------------------------*/
+
+
+/* Article and Events page styling */
+.article, .event {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.9s ease-out forwards;
+    font-size: 14px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    max-width: 65%;
+    box-shadow: 0 1px 3px #0000002b;
+}
+    .article p, .event p {
+        margin: 3px auto;
+    }
+
+    .article h4, .event h4 {
+        color: #4CAF50;
+        margin-bottom: 10px;
+        text-shadow: 0 1px 1px #0000002b;
+        text-align: center;
+    }
+
+
+    .article img, .event img {
+        display: block;
+        margin: 0 auto;
+        border-radius: 15px;
+        width: 40%;
+        margin-bottom: 8px;
+        transition: width 0.5s ease-in-out;
+    }    
+        /*bigger image, smoothly*/
+        .article img:hover, .event img:hover {
+            width: 60%;
+            
+        }
+
+    
+    .event button {
+        padding: 8px 12px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: 15px;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+        .event button:hover {
+            background-color: #3d8841;
+            
+        }
+
+
+/* Delete page for Event and Article */
+.deleteAndCreate {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.9s ease-out forwards;
+
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    max-width: 45%;
+    box-shadow: 0 1px 3px #0000002b;
+  
+}
+
+    .deleteAndCreate div div {
+        margin: 10px auto;
+    }
+
+/* EVENT notifyMe button */
+#notifyButton {
+    font-size: 12px;
+    background-color: #36f80000;
+    color: #4CAF50;
+    text-shadow: #c8c50f;
+    padding: 5px 12px;
+    border-radius: 25px;
+    transition: color 0.3s ease-in-out;
+    display: block;
+    margin: 0 auto;
+}
+    #notifyButton:hover {
+        color: #c8c50f;
+        text-shadow: #f9c23cff;
+    }
+
+
+
+/* ---------------------------------------------------------*/
+
+
+/* Email section in About Us page*/
+.email {
+    text-align: center;
+}
+
+    .email input {
+        margin-bottom: 10px;
+        padding: 7px;
+        width: 25%;
+        max-width: 300px;
+        border-radius: 11px;
+        border: 2px solid #ccc;
+    }
+
+    .email form button {
+        padding: 7px 12px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 11px;
+        margin-top: 10px;
+        transition: background-color 0.3s;
+    }
+
+        .email form button:hover {
+            background-color: #3d8841;
+        }
+
+    .email form select {
+        font-size:11px;
+        margin-top: 10px;
+        padding: 7px 10px;
+        border-color: #419545;
+        color: #333333;
+        border-radius: 11px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: color 0.3s;
+    }
+
+        .email form select:hover {
+            color: rgb(55, 148, 72);
+        }
+
+        .email form select option {
+            background-color: #bdbdbd81;
+            color: #333333;
+        }
+
+
+
+
+
+
+/* ---------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+/* Login and Sign-Up Form Styling */
+
+.form-container {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.9s ease-out forwards;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    max-width: 45%;
+    box-shadow: 0 4px 8px #0000002b;
+}
+
+#FCLayout {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.9s ease-out forwards;
+    margin: 30px auto;
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    max-width: 300px;
+    box-shadow: 0 4px 8px #0000002b;
+}
+
+#FCAuth {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.9s ease-out forwards;
+
+    max-width: 70%;
+    margin-top: 40px;
+    margin-left: 60px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px #0000002b;
+
+
+}
+
+    #FCAuth a {
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 12px;
+        transition: background-color 0.3s ease-in-out;
+        text-decoration: none;
+        display: block;
+        margin: 0 auto;
+        max-width: 70%;
+        margin-bottom: 5px;
+    }
+        #FCAuth a:hover {
+            background-color: #3d8841;
+            
+        }
+
+    #FCAuth #reset-authenticator {
+        padding: 10px;
+        background-color: #e7640fff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 10px;
+        transition: background-color 0.3s ease-in-out;
+        text-decoration: none;
+        display: block;
+        margin: 0 auto;
+        max-width: 55%;
+        margin-bottom: 5px;
+    }
+
+       #FCAuth #reset-authenticator:hover {
+            background-color: #bc4b00ff;
+        }
+
+#FCSetAuth {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.9s ease-out forwards;
+    max-width: 70%;
+    margin-top: 40px;
+    margin-left: 60px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px #0000002b;
+}
+
+    .form-container h2, #FCLayout h2, #FCAuth h2, #theH2 {
+        font-size: 18px;
+        color: #4CAF50;
+        text-align: center;
+        margin-bottom: 20px;
+        text-shadow: 0 1px 3px #0000002b;
+    }
+
+    .form-container label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    .form-container p {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+        .form-container p a {
+            color: #4CAF50;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+
+            .form-container p a:hover {
+                color: #c8a952e8;
+                text-decoration: underline;
+            }
+
+   
+    .form-container input[type="email"],
+    .form-container input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+.form-container button, #FCLayout button {
+    width: 50%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+
+        .form-container button[type="submit"]:hover, #FCLayout button:hover {
+            background-color: #3d8841;
+        }
+
+    /*clear button*/
+  /*  .form-container button[type="reset"] {
+        width: 100%;
+        margin-top: 10px;
+        background-color: #9d101000;
+        color: rgb(48, 161, 40);
+        border: none;
+        font-size: 14px;
+        cursor: pointer;
+        transition: color 0.3s ease-in-out;
+        align-content: center;
+    }
+
+        .form-container button[type="reset"]:hover {
+            font-size: medium;
+            color: #c8a952e8;
+        }*/
+
+
+
+
+
+
+
+
+
+/* retreived from bootstrap.css root/lib/bootstrap for nav menu of ACCOUNT*/
+/* ----- Manage MAIN ACCOUNT PAGE nav PILLS List (_ManageNav) ---------- */
+.nav.nav-pills.flex-column li {
+    
+    color: white; 
+    padding: 10px; 
+    border-radius: 8px; 
+}
+
+    .nav.nav-pills.flex-column li a {
+        padding: 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease-in-out;
+    }
+        .nav.nav-pills.flex-column li a:hover {
+            
+            padding: 10px; 
+            border-radius: 5px; 
+
+            
+        }
+.flex-column {
+    flex-direction: column !important;
+}
+
+
+/* retreived from bootstrap.css root/lib/bootstrap for nav menu of ACCOUNT*/
+.nav-pills .nav-link {
+    color: #4CAF50;
+    background: none;
+    border: 0;
+    border-radius: 0.25rem;
+}
+
+    .nav-pills .nav-link.active,
+    .nav-pills .show > .nav-link {
+        color: #fff;
+        background-color: #4CAF50;
+    }
+
+.nav-fill > .nav-link,
+.nav-fill .nav-item {
+    
+}
+
+.nav-justified > .nav-link,
+.nav-justified .nav-item {
+    flex-basis: 0;
+    flex-grow: 1;
+    text-align: center;
+}
+
+    .nav-fill .nav-item .nav-link,
+    .nav-justified .nav-item .nav-link {
+        width: 100%;
+    }
+
+
+
+
+
+/* Account Page (_Layout) Styling */
+.account {
+    max-width: 70%;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px #0000002b;
+}
+
+    .account h2 {
+        color: #4CAF50;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+
+
+
+
+
+
+
+
+#currentInfo {
+    text-align: center;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px #0000002b;
+}
+
+    #currentInfo p {
+        margin: 10px 0;
+        font-size: 1em;
+        color: #333;
+    }
+
+    #currentInfo strong {
+        color: #4CAF50;
+    }
+
+#showPasswordBtn {
+    width: 40%;
+    padding: 7px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+    #showPasswordBtn:hover {
+        background-color: #327536;
+    }
+
+#accountForm input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#accountForm button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+    #accountForm button:hover {
+        background-color: #327536;
+    }
+
+.account-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Styling for Sign Out button */
+.sign-out-button {
+    color: #e74c3c;
+    padding: 1px 7px 2px 7px;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+    transition: color 0.3s;
+    box-shadow: none;
+    margin-bottom: 0 auto;
+}
+
+    .sign-out-button:hover {
+        color: white;
+        background-color: #c0392b;
+    }
+
+
+/* ---------------------------------------------------------*/
+
+
+footer {
+    background-color: #4CAF50;
+    border-radius: 15px 15px 0 0;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+    footer div {
+        font-size: 12px;
+    }
+    footer a {
+        font-size: 11px;
+        color: white;
+        text-decoration: none; /* so theres no underline (like links)*/
+        font-weight: bold;
+    }
+/*    ------------------------------------------------------------*/
+
+/* Conatct us page styiling */
+.contact {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.9s ease-out forwards;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 20px;
+    max-width: 50%;
+    box-shadow: 0 1px 3px #0000002b;
+}
+
+.a {
+    
+    color: #419545;
+    transition: color 0.2s;
+}
+
+    .a:hover {
+        color: #c8a952e8;
+    }
+
+p {
+    text-align: center;
+    
+}
+
+
+main h2, h3 {
+    text-align: center;
+    padding: 5px;
+}
+
+
+/* MULTY USE BUTTON aka Universal Styling :) */
+.theButton {
+    padding: 5px 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 1px;
+}
+
+    .theButton:hover {
+        background-color: #3d8841;
+    }
+
+/* "a a:hover", but centered and without underline */
+.backToLink {
+    text-align: center;
+    padding: 5px 10px;
+    color: #419545;
+    text-decoration: none;
+    transition: color 0.3s;
+    display: block;
+    margin: 0 auto;
+}
+
+    .backToLink:hover {
+        color: #c8a952e8;
+    }
+
+
+.editLink {
+    font-size: 11px;
+    text-align: center;
+    color: #419545;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+    .editLink:hover {
+        color: #0094ff
+    }
+
+.deleteLink {
+    font-size: 11px;
+    text-align: center;
+    color: #419545;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    
+}
+    .deleteLink:hover {
+        color: #cf1c1cee;
+    }

@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Account";
+    var cookies = Context.Request.Cookies;
+}
+
+@* <div class="container" style=" text-align: center; border-radius: 8px;"> *@
+@*     <h1 class="mt-5">Account Cookies/Session Information</h1> *@
+   
+@*     <!--   used alone before for COOKIES, now using session and cookies now.   --> *@
+@*             <!-- Cookies info --> *@
+@*     <div class="card mt-3"> *@
+@*         <div class="card-body"> *@
+@*             <h5 class="card-title">Cookie Values</h5> *@
+@*             <ul> *@
+@*                 @foreach (var c in cookies) *@
+@*                 { *@
+@*                     <li>@c.Key : @c.Value</li> *@
+@*                 } *@
+@*             </ul> *@
+@*         </div> *@
+@*     </div> <!-- till here  --> *@
+    
+@*             <!-- Session Info--> *@
+@*     <div class="card mt-3" style=" text-align: center; border-radius: 8px;"> *@
+@*         <div class="card-body" > *@
+@*             <h5 class="card-title">Session Values</h5> *@
+@*             <ul> *@
+@*                 @ViewBag.sessionId *@
+@*             </ul> *@
+@*             <ul> *@
+@*                 @ViewBag.sessionUserName *@
+@*             </ul> *@
+@*         </div> *@
+@*     </div> *@
+@* </div> *@

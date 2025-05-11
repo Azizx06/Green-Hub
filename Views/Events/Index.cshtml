@@ -1,0 +1,163 @@
+﻿@model IEnumerable<JeddahGreenHub.Models.Event>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+
+@{
+    ViewData["Title"] = "Events";
+}
+
+<body>
+
+    <br />
+    <h1>Events</h1>
+
+    <p>
+        <a asp-action="Create" class="backToLink">Create a new Event &#127793</a>
+    </p>
+
+
+
+
+    @foreach (var item in Model.OrderBy(a => a.Date))
+    {
+        <section class="event">
+
+            <!-- TITLE-->
+            <h4>@item.Title</h4>
+
+
+            <!-- Image -->
+            <p>
+                @if (!string.IsNullOrEmpty(item.ImagePath) && item.ImagePath == "/images/no-image.png")
+                {
+                    <p> No image here mate :') Image is not null, but placeholder is default "/images/no-image.png" </p>
+
+                } else if (!string.IsNullOrEmpty(item.ImagePath))
+                {
+                    <img src="@item.ImagePath" alt="Article Image" class="#imgg" />
+
+                    } else{
+                            @* <p> Something went wrong when retreiving the image, imagee probably null :( : <br /> 
+                                Heres the link to the "ImagePath": @item.ImagePath <br />
+                                and heres the "Image": @item.Image    </p> *@
+                           }
+            </p>
+
+
+            <p style="font-size:12px;"><strong>Date: </strong>@item.Date.ToString("dd MMM yyyy")</p>
+            <p>@item.Description</p>
+            
+
+            <!-- Notify Me Button -->
+            <button id="notifyButton" type="button" onclick="notifyMe('@item.Date.ToString("yyyy-MM-dd")')">🔔 Notify Me</button>
+
+            
+            <!-- Edit and Delete Links...  When is user is not signed in Edit and Delete link are greyed out....  -->
+            @if (SignInManager.IsSignedIn(User) @* && Model.UserName = User.Identity.Name *@)
+            {
+                <p>
+                    <a class="editLink" asp-action="Edit" asp-route-id="@item.Id">&#128221Edit</a> |
+                    <a class="deleteLink" asp-action="Delete" asp-route-id="@item.Id">&#128219Delete</a>
+                </p>
+            }
+            else
+            {
+                <p style="color: #888; opacity: 0.5;">
+                    <a asp-action="Edit" asp-route-id="@item.Id"><small>Edit</small></a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id"><small>Delete</small></a>
+                </p>
+            }
+
+    </section>
+}
+
+
+<section class="event">
+    <h4>Eco-Friendly Product Fair</h4>
+    <img src="/EcoProduct.jpg" width="300" alt="Represents Eco Product.">
+    <p><strong>Date:</strong> 12 Jan 2025</p>
+    <p>
+        Explore a variety of eco-friendlyproducts and meet local vendors promoting sustainability.
+    </p>
+    <button id="notifyButton" type="button" onclick="notifyMe(3)"> &#128276 Notify Me</button>
+        <p style="color: #888; opacity: 0.5;">
+            <a><small>Edit</small></a> |
+            <a><small>Delete</small></a>
+        </p>
+</section>
+
+
+<section class="event">
+    <h4>Beach Preservation Initiative</h4>
+    <img src="/Beach Preservation Initiative.png" />
+        <p> <strong>Date: </strong>20 Feb 2025</p>
+    <p>
+        Volunteer to help preserve Jeddah's
+        beautiful beaches by participating in clean-up activities.
+    </p>
+    <button id="notifyButton" type="button" onclick="notifyMe(3)" > &#128276 Notify Me</button>
+        <p style="color: #888; opacity: 0.5;">
+            <a><small>Edit</small></a> |
+            <a><small>Delete</small></a>
+        </p>
+</section>
+
+
+
+<section class="event">
+    <h4>Earth Day Celebration and Workshop</h4>
+    <p><strong>Date:</strong> 22 Apr 2025</p>
+    <p>
+        Celebrate Earth Day with hands-on
+        activities and workshops focused on environmental awareness.
+    </p>
+    <button id="notifyButton" type="button" onclick="notifyMe(3)" > &#128276 Notify Me</button>
+        <p style="color: #888; opacity: 0.5;">
+            <a><small>Edit</small></a> |
+            <a><small>Delete</small></a>
+        </p>
+</section><br><br><br><br>
+
+
+
+
+
+
+
+    <script type="text/javascript">
+        
+        // -- notifyButton ....
+        function notifyMe(eventDate) {
+
+            const isLoggedIn = @User.Identity.IsAuthenticated.ToString().ToLower(); // Server-side check for login status
+
+            if (!isLoggedIn) {
+                const loginChoice = confirm("You need to be logged in to receive notifications. Would you like to log in?");
+                if (loginChoice) {
+                    window.location.href = "/Identity/Account/Login"; // Redirect to login page
+                }
+                return;
+            }
+
+            // ---- if logged in will calculate Notification Date ...
+            const today = new Date();
+            const dateOfEvent = new Date(eventDate);
+
+            const notificationDate = new Date(dateOfEvent);
+            notificationDate.setDate(notificationDate.getDate() - 2);
+
+            // ---- Check if today is before the notification date ....
+            if (today < notificationDate) {
+                alert(`You will be notified 2 days before the event on: ${notificationDate.toDateString()}.`);
+            }else if( today > notificationDate) {
+                alert(/* today + notificationDate + */ "Sorry, this event was already done. Feel free to pick another event. :)");
+            }
+            else {
+                alert(/* today + notificationDate + */ "This event is too close to notify you in advance.");
+            }
+        }
+
+    </script>
+</body>

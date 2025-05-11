@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Jeddah Green Hub</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    
+</head>
+<body>
+    <header>
+        <h2 class="headerh2">Jeddah Recycling & Waste Reduction Hub</h2>
+        <nav>
+
+            <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+            <a asp-area="" asp-controller="Resources" asp-action="Index">Resources</a>
+            <a asp-area="" asp-controller="Articles" asp-action="Index">Articles</a>
+            <a asp-area="" asp-controller="Events" asp-action="Index">Events</a>
+            <a asp-area="" asp-controller="Home" asp-action="AboutUs">About Us</a>
+            <a asp-area="" asp-controller="Home" asp-action="ContactUs">Contact us</a>
+            
+            <center><partial name="_LoginPartial" /></center>
+
+        </nav>
+        
+        <!-- added search function,  BELOW nav -->
+        <form asp-controller="Articles" method="post" asp-action="ShowSearchFormResult">
+            <div class="search-bar">
+                <input for="SearchArticle" placeholder="Search Articles..." required/>
+            </div>
+            @* button for search
+            <div class="form-group">
+                <input type="submit" value="Search" class="btn btn-primary" />
+            </div> *@
+        </form>
+    </header>
+
+
+
+    <div>
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div>
+            &copy; 2024 - JeddahGreenHub <a asp-area="" asp-controller="Home" asp-action="Privacy"><br />Privacy</a>
+           
+           
+        </div>
+    </footer>
+   
+    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+
+</body>
+</html>

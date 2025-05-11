@@ -1,0 +1,85 @@
+﻿@model IEnumerable<JeddahGreenHub.Models.Article>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Articles";
+}
+
+<br /><h1>Articles</h1>
+
+<p class="pCreateLink"> <a asp-action="Create" class="backToLink">Create a new Article &#127811</a></p>
+
+
+@foreach (var item in Model.OrderByDescending(a => a.CreationDate)) {
+
+    <section class="event">
+        
+        <!-- TITLE -->
+        <h4> @item.Title </h4>
+        
+        
+        <!-- Image -->
+        <p>
+            @if (!string.IsNullOrEmpty(item.ImagePath) && item.ImagePath == "/images/no-image.png")
+            {
+                <p> No image. </p>
+                    
+            } else if (!string.IsNullOrEmpty(item.ImagePath)) 
+            { 
+                <img src="@item.ImagePath" alt="Article Image"/> } 
+                
+                else{
+                    @* <p> Something went wrong when retreiving the image :( <br /> 
+                        Heres the link to the "ImagePath": @item.ImagePath <br />
+                        and heres the "Image": @item.Image    </p> *@
+                }
+        </p>
+
+
+        <p> @item.Description </p>
+        <p><small> <strong>Created on: </strong> @item.CreationDate.ToString("dd MMM yyyy, hh:mm tt")
+
+                <!-- Only show edited date and time when edited -->
+                @if (item.EditedDate.HasValue)
+                {
+                    <p style="opacity: 0.7; line-height: 1.5px;"><small>(Edited)</small>@* @item.EditedDate.Value.ToString("MMM dd, yyyy, hh:mm tt") *@</p>
+                }
+        </small></p>
+            
+       
+
+        <!-- Edit and Delete Links..  When is user is not signed in Edit and Delete link are greyed out -->
+        @if (SignInManager.IsSignedIn(User) @* && Model.UserName = User.Identity.Name *@) {
+            <p >
+                <a class="editLink" asp-action="Edit" asp-route-id="@item.ID">&#128221Edit</a> |
+                <a class="deleteLink" asp-action="Delete" asp-route-id="@item.ID">&#128219Delete</a>
+            </p>
+        } 
+        else 
+        {
+            <p style="color: #888; opacity: 0.5;">
+                <a asp-action="Edit" asp-route-id="@item.ID"><small>Edit</small></a> |
+                <a asp-action="Delete" asp-route-id="@item.ID"> <small>Delete</small></a>
+            </p>
+
+        }
+    </section>
+}
+
+<article class="article">
+    <h4>How to Start Composting in Small Spaces</h4>
+    <p>This guide helps residents learn the basics of composting, even in small living spaces, to reduce food waste effectively.</p>
+</article>
+
+<article class="article">
+    <h4>Eco-Friendly Shopping Tips for a Greener Future</h4>
+    <p>Tips on choosing sustainable products and shopping smarter to help reduce environmental impact.</p>
+</article>
+
+<article class="article">
+    <h4>Guide to Properly Disposing of Electronics</h4>
+    <p>Proper electronic waste disposal methods to reduce pollution and keep Jeddah's environment safe.</p>
+</article><br /><br /><br /> 
+    

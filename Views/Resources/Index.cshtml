@@ -1,0 +1,191 @@
+﻿@model ResourcesViewModel
+
+
+@{
+	ViewData["Title"] = "Resources";
+}
+
+<br />
+<h1>Resources</h1>
+
+<section class="resTable">
+	<h3>Recycling Tips</h3>
+	<table>
+		<tr>
+			<th>Material</th>
+			<th>How to Recycle</th>
+		</tr>
+		<tr>
+			<td>Plastic</td>
+			<td>Use designated bins. Avoid single-use plastics!</td>
+		</tr>
+		<tr>
+			<td>Paper</td>
+			<td>Ensure it's clean and dry. Drop off at paper recycling centers.</td>
+		</tr>
+		<tr>
+			<td>Glass</td>
+			<td>Recycle only unbroken glass in designated bins.</td>
+		</tr>
+	</table>
+</section>
+
+<section class="resTable">
+	<h3>Recycling Centers in Jeddah</h3>
+	<table>
+		<tr>
+			<th>Center Name</th>
+			<th>Location</th>
+			<th>Materials Accepted</th>
+		</tr>
+		<tr>
+			<td>Green Earth Recycling</td>
+			<td>Al-Salam District</td>
+			<td>Paper, Plastics, Metals</td>
+		</tr>
+		<tr>
+			<td>EcoCity Solutions</td>
+			<td>Al-Nahda</td>
+			<td>Electronics, Batteries, Plastics</td>
+		</tr>
+	</table>
+</section>
+
+
+
+
+
+
+<section class="comment-section">
+
+	
+
+	<h3>Community Comments</h3>
+	<!-- <form>
+		<textarea placeholder="Share your thoughts..." rows="5" cols="40" required></textarea><br> -->
+	<!-- <button type="button" onclick="addComment()">Post Comment</button> -->
+	<!-- <button type="button" onclick="addComment()"> Post Comment </button>
+	</form> -->
+
+	<!-- AddComment form TEXTAREA -->
+	@if (User.Identity.IsAuthenticated) // Server-side check
+	{
+		<div>
+			<form asp-action="AddComment" method="post">
+				<textarea name="CommentContent" placeholder="Share your thoughts..." rows="5" cols="40" required></textarea>
+				<span asp-validation-for="CommentContent" class="text-danger"></span>
+			
+				<button type="submit" class="commentbutton">Post Comment</button>
+			</form>
+		</div>
+		<!-- Success Messages Alerts instead of using JS, Each of (AddComment, SaveComment, and DeleteComment)
+		 sets a TempData["SuccessMessage"] value with a success message after completing the action.-->
+		@if (TempData["SuccessMessage"] != null)
+		{
+			<div class="alert alert-success alertt" style="">
+				@TempData["SuccessMessage"]
+			</div>
+		}
+	}
+	else
+	{					<!-- Login to Comment-->
+		<p> Please <a style=" " href="/Identity/Account/Login">log in</a> to leave a comment.</p>
+	}
+
+
+
+
+
+	<!-- in case, where there arent comments and we defer to using list of comments on top of not using sample ones below -->
+	@if (Model.Comments != null && Model.Comments.Any()){
+
+		<div class="existing-comments">
+
+			@foreach (var comment in Model.Comments)
+			{
+
+					<!-- Comment EDIT Form, ONLY USERS THAT MADE THE COMMENT CAN EDIT or DELETE their comment.....  -->
+				if (ViewBag.CommentId as int? == comment.Id)
+				{
+					
+					<form asp-action="SaveComment" method="post" >
+						<br /><input type="hidden" name="id" value="@comment.Id" />
+						<textarea name="updatedContent" cols="50" required> @comment.Content </textarea>
+						<button type="submit" class="theButton btn-sm"> Save </button>
+						<a href="@Url.Action("Index")" class="backToLink"> Cancel  </a><br />
+					</form>
+				}
+				else
+				{
+					
+					<p>   <!-- Users Exisitng Comments -->
+						<strong>@comment.UserName:</strong> @comment.Content <br>
+						<small>@comment.DatePosted.ToString("MMM dd, yyyy, hh:mm tt")</small>	
+					</p>
+
+
+					@if (User.Identity.IsAuthenticated &&
+							(comment.UserName == User.Identity.Name || User.Identity.Name == "admin@project.kau"))
+					{
+						<!----------------- EDIT and DELETE ------------------------->
+						<div style="display: flex; justify-content: center; gap: 5px;">
+
+							<!-- Edit Comment -->
+							<form asp-action="EditComment" method="get">
+								<input type="hidden" name="id" value="@comment.Id" />
+								<button type="submit" class="editButton"><small>&#128221</small>Edit</button>
+							</form> |
+
+							<!-- Delete Comment-->
+							<form asp-action="DeleteComment" method="post">
+								<input type="hidden" name="id" value="@comment.Id" />
+								<button type="submit" class="delButton"><small>&#128219</small>Delete</button>
+							</form>
+
+						</div>
+
+						<br />
+
+					}
+					else
+					{
+
+						<!-------------- GRAYED OUT EDIT and DELETE ----------------->
+						<div style="color: #888; opacity: 0.3; display: flex; justify-content: center; gap: 3px;">
+							<!-- GRAYED OUT Edit Button -->
+							<a><small>Edit</small></a>  |
+							<!-- GRAYED OUT Delete Button -->
+							<a><small>Delete</small></a>
+						</div>
+
+						<br />
+					}
+
+				
+				}
+			}
+
+
+			<!-- Sample comments-->
+			<p><strong> User2: </strong> Can you add more recycling centers?<br><small>Nov 5, 2024, 01:33 PM</small></p><br />
+			<p><strong> User1: </strong> Great initiative! Excited to see Jeddah becoming more sustainable.<br><small>Oct 27, 2024, 10:34 AM</small></p>
+		
+		</div>
+	} else {
+        <p>No comments yet. Be the first to comment!</p>
+    }
+</section>
+<br>
+<br>
+
+	<!-- timeout the Success message -->
+	<script>
+		setTimeout(function () {
+			$(".alertt").fadeOut("slow");
+		}, 5000);
+	</script>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

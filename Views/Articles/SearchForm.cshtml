@@ -1,0 +1,23 @@
+﻿@model JeddahGreenHub.Models.Article
+
+<h4>Article</h4>
+<hr />
+
+   
+        <form asp-action="ShowSearchFormResult">
+            
+            <div class="search-bar">
+                <input for="SearchArticle"  placeholder="Search Articles..."/>
+            </div>
+            <!--button for search-->
+            <div class="form-group">
+                <input type="submit" value="Search" class="btn btn-primary" />
+            </div> 
+        </form>
+    
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
